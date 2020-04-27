@@ -65,7 +65,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::find($id);
+        return view('admin.tag.edit', compact('tag'));
     }
 
     /**
@@ -77,7 +78,13 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = Tag::find($id);
+        $validatedData = $request->validate([
+            'name'=> 'required|min:5|unique:tags,name,'.$tag->id,
+            'slug'=>'required|min:5|unique:tags,name,'.$tag->id
+        ]);
+        $tag->update($validatedData);
+        return redirect()->route('tag.index')->with('success', 'Tag has been updated');
     }
 
     /**
@@ -88,6 +95,9 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->delete();
+        
+     return redirect()->back()->with('success', 'Tag has been deleted');
     }
 }

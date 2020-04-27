@@ -30,15 +30,16 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" action="{{route('post.store')}}" method="POST">
+            <form role="form" action="{{route('post.update', $post->id)}}" method="POST">
               @csrf
+              @method('PATCH')
               <div class="card-body">
                 <div class="row">
                 {{-- titles --}}
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label for="postTitle">Post Title</label>
-                    <input type="text" name="title" class="form-control @if($errors->has('title')) is-invalid @endif" id="postTitle" placeholder="Enter Title" value="{{old('title')}}">
+                    <input type="text" name="title" class="form-control @if($errors->has('title')) is-invalid @endif" id="postTitle" placeholder="Enter Title" value="{{$post->title}}">
                     @error('title')
                         <div class="invalid-feedback">
                           {{$message}}
@@ -48,7 +49,7 @@
 
                   <div class="form-group">
                     <label for="subtitle">Post Subtitle</label>
-                    <input type="text" class="form-control @if($errors->has('subtitle')) is-invalid @endif" id="subtitle" name="subtitle" placeholder="Subtitle" value="{{old('subtitle')}}">
+                    <input type="text" class="form-control @if($errors->has('subtitle')) is-invalid @endif" id="subtitle" name="subtitle" placeholder="Subtitle" value="{{$post->subtitle}}">
                     @error('subtitle')
                         <div class="invalid-feedback">
                           {{$message}}
@@ -57,7 +58,7 @@
                   </div>
                   <div class="form-group">
                     <label for="slug">Post Slug</label>
-                    <input type="text" class="form-control @if($errors->has('slug')) is-invalid @endif" id="slug" name="slug" placeholder="Slug" value="{{old('slug')}}">
+                    <input type="text" class="form-control @if($errors->has('slug')) is-invalid @endif" id="slug" name="slug" placeholder="Slug" value="{{$post->slug}}">
                     @error('slug')
                     <div class="invalid-feedback">
                       {{$message}}
@@ -84,7 +85,7 @@
                   </div>
                   <br>
                   <div class="form-check">
-                    <input type="checkbox" name="status" class="form-check-input" id="publish">
+                    <input type="checkbox" name="status" class="form-check-input" id="publish"  @if($post->status) checked @endif>
                     <label class="form-check-label" for="publish">Publish</label>
                   </div>
                 </div>
@@ -110,7 +111,7 @@
                 <!-- /.card-header -->
                 <div class="card-body pad">
                   <div class="mb-3">
-                    <textarea class="textarea @if($errors->has('body')) is-invalid @endif" name="body" placeholder="Place your story here" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{old('body')}}</textarea>
+                    <textarea class="textarea @if($errors->has('body')) is-invalid @endif" name="body" placeholder="Place your story here" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$post->body}}</textarea>
                     @error('body')
                         <div class="invalid-feedback">
                           {{$message}}
@@ -120,7 +121,7 @@
               </div>
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-success">Save</button>
                 <a href="{{route('post.index')}}" class="btn btn-default">Cancel</a>
               </div>
             </form>

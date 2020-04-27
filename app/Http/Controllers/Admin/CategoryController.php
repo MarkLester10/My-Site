@@ -64,7 +64,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -76,7 +77,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $validatedData = $request->validate([
+            'name'=> 'required|min:5|unique:tags,name,'.$category->id,
+            'slug'=>'required|min:5|unique:tags,name,'.$category->id
+        ]);
+        $category->update($validatedData);
+        return redirect()->route('category.index')->with('success', ' Category Updated Succesfully');
     }
 
     /**

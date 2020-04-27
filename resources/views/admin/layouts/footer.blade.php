@@ -18,6 +18,7 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->

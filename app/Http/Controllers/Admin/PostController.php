@@ -37,8 +37,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        isset($request->status) ? $request->merge(['status'=>1]) :  $request->merge(['status'=>null]);
         $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:20',
+            'title' => 'required|unique:posts|max:150',
             'subtitle' => 'required',
             'slug' => 'required|unique:posts',
             'body' => 'required',
@@ -69,7 +70,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('admin.post.edit', compact('post'));
     }
 
     /**
@@ -81,7 +83,19 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $post = Post::find($id);
+        isset($request->status) ? $request->merge(['status'=>1]) :  $request->merge(['status'=>null]);
+        $validatedData = $request->validate([
+            'title' => 'required|max:150|unique:posts,title,'.$post->id,
+            'subtitle' => 'required',
+            'slug' => 'required|unique:posts,slug,'.$post->id,
+            'body' => 'required',
+            'image'=>'required'
+        ]);
+        
+        $post->update($request->only(['title', 'sutitle','slug', 'body', 'image', 'status']));
+        return redirect()->route('post.index')->with('success', 'Post has been Updated');
     }
 
     /**
@@ -92,6 +106,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->back()->with('success','Post Deleted Successfully');
     }
 }
