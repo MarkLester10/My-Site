@@ -1,5 +1,10 @@
 @extends('admin.layouts.app')
 
+@section('headSection')
+<link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+@endsection
+
 @section('main-content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -66,7 +71,7 @@
                   </div>
                 </div>
                 {{-- /titles --}}
-                
+
                 {{-- file input --}}
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -82,13 +87,26 @@
                         @enderror
                     </div>
                   </div>
-                  <br>
-                  <div class="form-check">
-                    <input type="checkbox" name="status" class="form-check-input" id="publish">
-                    <label class="form-check-label" for="publish">Publish</label>
-                  </div>
                 </div>
-                {{-- /file input --}}
+                <div class="form-group">
+                    <label>Select Tags</label>
+                    <select name="tags[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a Tag" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                      @foreach ($tags as $tag)
+                      <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Select Categories</label>
+                    <div class="select2-purple">
+                      <select name="categories[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a Category" data-dropdown-css-class="select2-purple" style="width: 100%;" data-select2-id="19" tabindex="-1" aria-hidden="true">
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
               </div>
             </div>
               <!-- /.card-body -->
@@ -122,13 +140,18 @@
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{route('post.index')}}" class="btn btn-default">Cancel</a>
+                <div class="form-check mt-3">
+                    <input type="checkbox" name="status" class="form-check-input" id="publish"  >
+                    <label class="form-check-label" for="publish">Publish</label>
+                    <small class="text-muted d-block">You have this option if you're not done writing your beautiful stories :)</small>
+                </div>
               </div>
             </form>
           </div>
           <!-- /.card -->
 
 
-          
+
         </div>
         <!-- /.col-->
       </div>
@@ -136,5 +159,15 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->  
+  <!-- /.content-wrapper -->
+@endsection
+
+@section('footerSection')
+<script src="{{ asset("admin/plugins/select2/js/select2.full.min.js") }}"></script>
+<script>
+   $(document).ready(function () {
+    $('.select2').select2();
+    //Initialize Select2 Elements
+   });
+</script>
 @endsection

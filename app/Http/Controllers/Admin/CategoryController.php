@@ -38,8 +38,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name'=> 'required|unique:tags|min:5',
-            'slug'=>'required|unique:tags|min:5'
+            'name'=> 'required|unique:categories|min:5',
+            'slug'=>'required|unique:categories|min:5'
         ]);
         Category::create($validatedData);
         return redirect()->route('category.index')->with('success', 'Category Added Successfully');
