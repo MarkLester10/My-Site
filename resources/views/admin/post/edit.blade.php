@@ -179,6 +179,7 @@
                 @section('footerSection')
                 <script src="{{ asset("admin/plugins/select2/js/select2.full.min.js") }}"></script>
                 <script>
+                    CKEDITOR.replace('body');
                     $(document).ready(function () {
                         $('.select2').select2();
                         //Initialize Select2 Elements

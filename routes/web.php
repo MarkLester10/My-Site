@@ -20,7 +20,7 @@ Route::group(['namespace' => 'User'], function () {
     Route::get('/blog', 'HomeController@blog')->name('blog');
     Route::get('/projects', 'HomeController@projects')->name('projects');
     Route::get('/contact', 'HomeController@contact')->name('contact');
-    Route::get('/blog/post','PostController@show')->name('post');    
+    Route::get('/blog/post/{post?}','PostController@show')->name('post');
 });
 
 // admin routes

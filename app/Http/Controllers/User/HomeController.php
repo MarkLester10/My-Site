@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Model\User\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -12,7 +13,8 @@ class HomeController extends Controller
     }
 
     public function blog(){
-        return view('user.blog');
+        $posts=Post::where('status',1)->get();
+        return view('user.blog', compact('posts'));
     }
 
     public function resume(){
