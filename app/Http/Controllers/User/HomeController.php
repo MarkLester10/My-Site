@@ -13,7 +13,7 @@ class HomeController extends Controller
     }
 
     public function blog(){
-        $posts=Post::where('status',1)->get();
+        $posts=Post::where('status',1)->paginate(5);
         return view('user.blog', compact('posts'));
     }
 
