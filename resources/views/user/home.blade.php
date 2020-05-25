@@ -1,5 +1,6 @@
 @extends('user.app')
 
+@section('header-title', "Mark Lester")
 @section('bg-img',asset('user/img/home-bg.jpg'))
 @section('title', "Hi I'm Mark")
 @section('subheading', 'A Web Developer and UI/UX Designer')
