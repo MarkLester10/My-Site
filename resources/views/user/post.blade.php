@@ -1,11 +1,15 @@
 @extends('user.app')
 
+@section('header-title', $post->title)
 @section('bg-img',asset('user/img/post-bg.jpg'))
 @section('title', $post->title)
 @section('subheading', $post->subtitle)
 
 
+
 @section('content')
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=714944875930667&autoLogAppEvents=1"></script>
       <!-- Post Content -->
   <article>
     <div class="container">
@@ -25,8 +29,10 @@
                     #{{ $tag->name }}
             </small>
             @endforeach
+            <div class="mt-5 fb-comments" data-href="{{Request::url()}}" data-numposts="10" data-width=""></div>
         </div>
       </div>
     </div>
   </article>
 @endsection
+

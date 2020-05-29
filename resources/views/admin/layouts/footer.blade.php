@@ -44,7 +44,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 <script src="{{asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
-<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
 
 <script type="text/javascript">
   $(document).ready(function () {
