@@ -18,14 +18,14 @@
             <small class="text-muted">Created {{ $post->created_at->diffForHumans() }}</small>
                 @foreach ($post->categories as $category)
                 <small class="float-right mr-2">
-                    <a class="text-success" href="{{ route('category', $category->slug) }}">{{ $category->name }}</a>
+                    <a class="text-success" href="#">{{ $category->name }}</a>
                     @if (!$loop->last),@endif
                 </small>
                 @endforeach
             {!! htmlspecialchars_decode($post->body) !!}
             <h2 class="pb-3">Tags</h2>
             @foreach ($post->tags as $tag)
-            <a href="{{ route('tag', $tag->slug) }}" class="text-dark rounded p-2 border m-2 text-decoration-none">
+            <a href="#" class="text-dark rounded p-2 border m-2">
                 <small >
                     #{{ $tag->name }}
                 </small>

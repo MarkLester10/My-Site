@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Model\User\Tag;
 use App\Model\User\Post;
 use App\Model\User\Category;
 use Illuminate\Http\Request;
@@ -15,7 +14,7 @@ class HomeController extends Controller
     }
 
     public function blog(){
-        $posts=Post::where('status',1)->orderBy('created_at','DESC')->paginate(5);
+        $posts=Post::where('status',1)->paginate(5);
         return view('user.blog', compact('posts'));
     }
 
@@ -23,12 +22,10 @@ class HomeController extends Controller
         return view('user.about');
     }
 
-    public function tag(Tag $tag){
-        $posts = $tag->posts();
-        return view('user.blog', compact('posts'));
+    public function tag(){
+
     }
     public function category(Category $category){
-        $posts = $category->posts();
-        return view('user.blog', compact('posts'));
+        return $category->posts;
     }
 }

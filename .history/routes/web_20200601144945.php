@@ -21,8 +21,6 @@ Route::group(['namespace' => 'User'], function () {
     Route::get('/projects', 'HomeController@projects')->name('projects');
     Route::get('/contact', 'HomeController@contact')->name('contact');
     Route::get('/blog/post/{post?}','PostController@show')->name('post');
-    Route::get('/blog/post/tag/{tag}', 'HomeController@tag')->name('tag');
-    Route::get('/blog/post/category/{category}', 'HomeController@category')->name('category');
 });
 
 // admin routes

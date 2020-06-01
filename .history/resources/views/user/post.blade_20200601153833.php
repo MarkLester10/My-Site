@@ -25,7 +25,7 @@
             {!! htmlspecialchars_decode($post->body) !!}
             <h2 class="pb-3">Tags</h2>
             @foreach ($post->tags as $tag)
-            <a href="{{ route('tag', $tag->slug) }}" class="text-dark rounded p-2 border m-2 text-decoration-none">
+            <a href="#" class="text-dark rounded p-2 border m-2 text-decoration-none">
                 <small >
                     #{{ $tag->name }}
                 </small>

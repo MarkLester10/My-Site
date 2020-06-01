@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Model\User\Tag;
 use App\Model\User\Post;
 use App\Model\User\Category;
 use Illuminate\Http\Request;
@@ -23,9 +22,8 @@ class HomeController extends Controller
         return view('user.about');
     }
 
-    public function tag(Tag $tag){
-        $posts = $tag->posts();
-        return view('user.blog', compact('posts'));
+    public function tag(){
+
     }
     public function category(Category $category){
         $posts = $category->posts();

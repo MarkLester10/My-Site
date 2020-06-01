@@ -22,7 +22,7 @@
              </h3>
            </a>
            @foreach ($post->tags as $tag)
-           <small class="text-success">#{{ $tag->name }}</small>
+           <small class="text-muted text-success">#{{ $tag->name }}</small>
            @endforeach
            <p class="post-meta">Posted {{ $post->created_at->diffForHumans() }} by
              <a href="#">Start Bootstrap</a>

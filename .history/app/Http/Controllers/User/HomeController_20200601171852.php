@@ -24,11 +24,11 @@ class HomeController extends Controller
     }
 
     public function tag(Tag $tag){
-        $posts = $tag->posts();
+        $posts = $tag->posts()->where('status','1');
         return view('user.blog', compact('posts'));
     }
     public function category(Category $category){
-        $posts = $category->posts();
+        $posts = $category->posts()->where('status','1');
         return view('user.blog', compact('posts'));
     }
 }

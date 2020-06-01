@@ -11,9 +11,6 @@ class Tag extends Model
 
     public function posts()
     {
-        return $this->belongsToMany(Post::class,'post_tags')->where('status','1')->orderBy('created_at','DESC')->paginate(5);;
-    }
-    public function getRouteKeyName(){
-        return 'slug';
+        return $this->belongsToMany(Post::class,'post_tags');
     }
 }

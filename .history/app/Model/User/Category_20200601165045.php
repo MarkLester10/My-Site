@@ -10,7 +10,7 @@ class Category extends Model
 
     public function posts()
     {
-        return $this->belongsToMany(Post::class,'category_posts')->where('status','1')->orderBy('created_at','DESC')->paginate(5);
+        return $this->belongsToMany(Post::class,'category_posts')->orderBy('created_at')->paginate(5);
     }
     public function getRouteKeyName(){
         return 'slug';
