@@ -1,7 +1,6 @@
  <!-- Navigation -->
  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <img class="navbar-brand" style="width: 90px;" src="{{ asset('/android-chrome-512x512.png') }}" alt="logo">
       <a class="navbar-brand" href="/">
         Mark Lester</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
