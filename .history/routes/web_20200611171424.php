@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('/admin/home', 'HomeController@index');
     Route::get('/admin-login','Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/admin-login', 'Auth\LoginController@login');
-    Route::get('/posts/check_slug', 'PostController@check_slug')
+    Route::get('/posts/check_slug', 'PagesController@check_slug')
   ->name('posts.check_slug');
 });
 

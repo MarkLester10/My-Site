@@ -31,8 +31,8 @@
                 </small>
             </a>
             @endforeach
-            <div class="mt-5 d-block fb-comments" data-href="{{Request::url()}}" data-numposts="10" data-width=""></div>
         </div>
+        <div class="mt-5 fb-comments" data-href="{{Request::url()}}" data-numposts="10" data-width=""></div>
       </div>
     </div>
   </article>

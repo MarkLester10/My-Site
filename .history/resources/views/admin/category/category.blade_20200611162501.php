@@ -67,7 +67,7 @@
           <!-- /.card -->
 
 
-
+          
         </div>
         <!-- /.col-->
       </div>
@@ -75,18 +75,5 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-@endsection
-
-@section('footerSection')
-<script>
-   $('#name').change(function(e) {
-    $.get('{{ route('posts.check_slug') }}',
-      { 'title': $(this).val() },
-      function( data ) {
-        $('#slug').val(data.slug);
-      }
-    );
-  });
-</script>
+  <!-- /.content-wrapper -->  
 @endsection

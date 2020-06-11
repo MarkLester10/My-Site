@@ -44,7 +44,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="postTitle">Post Title</label>
-                                        <input type="text" name="title" class="form-control @if($errors->has('title')) is-invalid @endif" id="title" placeholder="Enter Title" value="{{$post->title}}">
+                                        <input type="text" name="title" class="form-control @if($errors->has('title')) is-invalid @endif" id="postTitle" placeholder="Enter Title" value="{{$post->title}}">
                                         @error('title')
                                         <div class="invalid-feedback">
                                             {{$message}}
@@ -193,6 +193,5 @@
                         $('#slug').val(data.slug);
                     }
                     );
-                });
                 </script>
                 @endsection

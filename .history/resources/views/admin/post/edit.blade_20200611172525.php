@@ -193,6 +193,5 @@
                         $('#slug').val(data.slug);
                     }
                     );
-                });
                 </script>
                 @endsection

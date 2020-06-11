@@ -43,7 +43,7 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label for="postTitle">Post Title</label>
-                    <input type="text" name="title" class="form-control @if($errors->has('title')) is-invalid @endif" id="title" placeholder="Enter Title" value="{{old('title')}}">
+                    <input type="text" name="title" class="form-control @if($errors->has('title')) is-invalid @endif" id="postTitle" placeholder="Enter Title" value="{{old('title')}}">
                     @error('title')
                         <div class="invalid-feedback">
                           {{$message}}
@@ -62,7 +62,7 @@
                   </div>
                   <div class="form-group">
                     <label for="slug">Post Slug</label>
-                    <input id="slug" type="text" class="form-control @if($errors->has('slug')) is-invalid @endif" name="slug" placeholder="Slug" value="{{old('slug')}}">
+                    <input id="slug" type="text" class="form-control @if($errors->has('slug')) is-invalid @endif" id="slug" name="slug" placeholder="Slug" value="{{old('slug')}}">
                     @error('slug')
                     <div class="invalid-feedback">
                       {{$message}}

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\User\Tag;
-use App\Model\User\Post;
-use Illuminate\Support\Str;
-use App\Model\User\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Model\User\Post;
+use App\Model\User\Tag;
+use App\Model\User\Category;
 use Illuminate\Support\Facades\Http;
 
 class PostController extends Controller
