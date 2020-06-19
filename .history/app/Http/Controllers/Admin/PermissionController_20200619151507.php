@@ -81,7 +81,6 @@ class PermissionController extends Controller
     {
         $this->validate($request,[
             'name'=>'required|string|max:20|unique:permissions,name,'.$permission->id,
-            'for'=> 'required',
         ]);
 
         $permission->update($request->all());

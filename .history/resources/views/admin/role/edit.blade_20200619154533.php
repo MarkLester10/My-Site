@@ -1,11 +1,5 @@
 @extends('admin.layouts.app')
 
-@section('headSection')
-<link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-@endsection
-
-
 @section('main-content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -86,27 +80,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Other Permissions</label>
-                        <div class="container d-flex justify-content-around">
-                        @foreach ($permissions as $permission)
-                        @if ($permission->for === 'other')
-                            <label>
-                                <input class="@if($errors->has('other_permissions')) is-invalid @endif" type="checkbox" value="{{ $permission->id }}" name="other_permissions[]">
-                                {{ $permission->name }}
-                           </label>
-                        @endif
-                      @endforeach
-                        </div>
-
-                    @error('other_permissions')
-                    <div class="invalid-feedback">
-                      {{$message}}
-                    </div>
-                    @enderror
-                  </div>
-
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     <a href="{{route('role.index')}}" class="btn btn-default">Cancel</a>
                   </div>
                 </div>
@@ -128,14 +102,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-@endsection
-
-@section('footerSection')
-<script src="{{ asset("admin/plugins/select2/js/select2.full.min.js") }}"></script>
-<script>
-   $(document).ready(function () {
-    $('.select2').select2();
-    //Initialize Select2 Element
-   });
-</script>
 @endsection

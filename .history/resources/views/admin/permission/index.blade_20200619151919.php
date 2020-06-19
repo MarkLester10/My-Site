@@ -44,7 +44,6 @@
           <tr>
             <th>No</th>
             <th>Permission</th>
-            <th>Assigned to:</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>

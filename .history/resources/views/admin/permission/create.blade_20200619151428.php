@@ -48,12 +48,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Permission for:</label>
-                    <select name="for" class="form-control @if($errors->has('for')) is-invalid @endif" id="for" value="{{old('for')}}">
-                     <option value="">Select permission for:</option>
-                     <option value="user">User</option>
-                     <option value="post">Post</option>
-                     <option value="other">Other</option>
+                    <label>Create Permission for:</label>
+                    <select name="for" class="form-control w-50">
+                     <option value="1">User</option>
+                     <option value="2">Post</option>
+                     <option value="3">Other</option>
                     </select>
                     @error('for')
                     <div class="invalid-feedback">
@@ -63,7 +62,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     <a href="{{route('permission.index')}}" class="btn btn-default">Cancel</a>
                   </div>
                 </div>

@@ -63,7 +63,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     <a href="{{route('permission.index')}}" class="btn btn-default">Cancel</a>
                   </div>
                 </div>

@@ -1,6 +1,5 @@
 @extends('admin.layouts.app')
 
-
 @section('main-content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -48,14 +47,13 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Permission for:</label>
-                    <select name="for" class="form-control @if($errors->has('for')) is-invalid @endif" id="for" value="{{old('for')}}">
-                     <option value="">Select permission for:</option>
-                     <option value="user">User</option>
-                     <option value="post">Post</option>
-                     <option value="other">Other</option>
+                    <label>Create Permission for:</label>
+                    <select name="posts_permissions[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select user's permissions" style="width: 100%;" data-select2-id="19" tabindex="-1" aria-hidden="true">
+                     <option value="">User</option>
+                     <option value="">Posts</option>
+                     <option value="">Role</option>
                     </select>
-                    @error('for')
+                    @error('posts_permissions')
                     <div class="invalid-feedback">
                       {{$message}}
                     </div>
@@ -63,7 +61,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     <a href="{{route('permission.index')}}" class="btn btn-default">Cancel</a>
                   </div>
                 </div>
@@ -86,4 +84,3 @@
   </div>
   <!-- /.content-wrapper -->
 @endsection
-

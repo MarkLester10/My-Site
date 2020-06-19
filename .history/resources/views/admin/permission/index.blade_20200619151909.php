@@ -31,7 +31,6 @@
             <tr>
               <td>{{$loop->index + 1}}</td>
               <td>{{$permission->name}}</td>
-              <td>{{$permission->for}}</td>
               <td><a href="{{route('permission.edit',$permission->id)}}"><ion-icon name="create-outline" class="text-success text-lg"></ion-icon>
               </a></td>
               <td>
@@ -44,7 +43,6 @@
           <tr>
             <th>No</th>
             <th>Permission</th>
-            <th>Assigned to:</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>

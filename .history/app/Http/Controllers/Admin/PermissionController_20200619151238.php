@@ -43,7 +43,6 @@ class PermissionController extends Controller
         ]);
         $permission = new Permission();
         $permission->name = $request->name;
-        $permission->for = $request->for;
         $permission->save();
          return redirect()->route('permission.index')->with('success','New Permission has been Created');
     }
@@ -81,7 +80,6 @@ class PermissionController extends Controller
     {
         $this->validate($request,[
             'name'=>'required|string|max:20|unique:permissions,name,'.$permission->id,
-            'for'=> 'required',
         ]);
 
         $permission->update($request->all());
