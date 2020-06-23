@@ -117,20 +117,15 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-user"></i>
-          {{-- <span class="badge badge-warning navbar-badge">15</span> --}}
+          <span class="badge badge-warning navbar-badge">15</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
           <a href="#" class="dropdown-item">
-            <i class="fas fa-user mr-2"></i> Profile
+            <i class="fas fa-user mr-2"></i> My Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{ route('logout') }}" class="dropdown-item nav-link"
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
-            <i class="fas fa-power-off mr-2"></i> Logout
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
           </a>
         </div>
       </li>
@@ -141,6 +136,17 @@
         </a>
       </li> --}}
 
+      <li class="nav-item has-treeview">
+        <a class="nav-link" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+        <i class="nav-icon fas fa-power-off"></i>
+         <p>Logout</p>
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        </a>
+      </li>
 
 
     </ul>

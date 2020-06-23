@@ -1,7 +1,7 @@
 <footer class="main-footer">
-    <strong>Blogabag</strong>
+    <strong>Mark Lester Morta</strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Copyright &copy;</b> {{ Carbon\Carbon::now()->year }}
+      <b>Copyright &copy;</b> {{ Carbon\Caron::now()->year }}
     </div>
 </footer>
 

@@ -14,7 +14,18 @@
         <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/profile" class="d-block">{{auth()->user()->name }}</a>
+          <a href="/profile" class="d-block">{{ auth()->user()->name }}</a>
+         <small>
+            <i class="nav-icon fas fa-power-off"></i>
+            <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+             <p>Logout</p>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            </a>
+         </small>
         </div>
       </div>
 
@@ -125,6 +136,17 @@
             </a>
           </li>
 
+          <li class="nav-item has-treeview">
+            <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+            <i class="nav-icon fas fa-power-off"></i>
+             <p>Logout</p>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            </a>
+          </li>
 
 
       </nav>

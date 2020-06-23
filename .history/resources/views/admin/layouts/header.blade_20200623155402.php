@@ -119,9 +119,9 @@
           <i class="far fa-user"></i>
           {{-- <span class="badge badge-warning navbar-badge">15</span> --}}
         </a>
-        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
           <a href="#" class="dropdown-item">
-            <i class="fas fa-user mr-2"></i> Profile
+            <i class="fas fa-user mr-2"></i> My Profile
           </a>
           <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}" class="dropdown-item nav-link"

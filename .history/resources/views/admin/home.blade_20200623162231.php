@@ -30,7 +30,7 @@
                 <div class="inner">
                   <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                  <p>Average Posts Reviews</p>
+                  <p>Writers</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>

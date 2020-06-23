@@ -30,7 +30,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Blogabag {{ Carbon\Carbon::now()->year }}</p>
+          <p class="copyright text-muted">Copyright &copy; Blogabag 2020-{{ Carbon\Carbon::now()->year() }}</p>
         </div>
       </div>
     </div>

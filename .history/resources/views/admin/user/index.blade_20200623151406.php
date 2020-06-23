@@ -33,12 +33,6 @@
               <td>{{$loop->index + 1}}</td>
               <td>{{$user->name}}</td>
               <td>{{$user->email}}</td>
-              <td>
-                @foreach ($user->roles as $role)
-                {{ $role->name }}
-                @if (!$loop->last),@endif
-                @endforeach
-              </td>
               <td><a href="{{route('user.edit',$user->id)}}"><ion-icon name="create-outline" class="text-success text-lg"></ion-icon>
               </a></td>
               <td>

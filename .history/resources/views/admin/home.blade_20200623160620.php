@@ -15,10 +15,10 @@
                 <div class="inner">
                   <h3>150</h3>
 
-                  <p>Posts</p>
+                  <p>New Orders</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-ios-bookmarks-outline"></i>
+                  <i class="ion ion-bag"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -30,7 +30,7 @@
                 <div class="inner">
                   <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                  <p>Average Posts Reviews</p>
+                  <p>Bounce Rate</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
