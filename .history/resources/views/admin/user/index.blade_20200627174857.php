@@ -32,8 +32,11 @@
             <tr>
               <td>{{$loop->index + 1}}</td>
               <td>{{$user->name}}<span class="float-right badge @if($user->status)badge-success @else badge-danger @endif">
-               {{ $user->status ? 'Active' : 'Inactive' }}
-            </span></td>
+                @if($user->status)
+                  Active
+                @else
+                  Inactive
+                @endif</span></td>
               <td>{{$user->email}}</td>
               <td>
                 @foreach ($user->roles as $role)

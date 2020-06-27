@@ -103,14 +103,14 @@
                 <a href="{{route('user.index')}}" class="nav-link ml-3">
                   <i class="fa fa-users nav-icon"></i>
                   <p>Users</p>
-                  <span class="badge badge-info right"></span>
+                  <span class="badge badge-info right">{{ $users->count() }}</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('role.index')}}" class="nav-link ml-3">
                   <i class="fa fa-universal-access nav-icon"></i>
                   <p>Roles</p>
-                  <span class="badge badge-info right"></span>
+                  <span class="badge badge-info right">{{ $roles->count() }}</span>
                 </a>
               </li>
             </ul>

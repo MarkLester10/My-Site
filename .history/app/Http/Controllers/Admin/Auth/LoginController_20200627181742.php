@@ -61,14 +61,11 @@ class LoginController extends Controller
     {
         $admin = Admin::where('email', $request->email)->first();
 
-        if ($admin) {
-            if ($admin->status == 0) {
-                return ['email' => 'inactive', 'password' => 'You are not an active user, please contact Admin'];
-            } else {
-                return ['email' => $request->email, 'password' => $request->password, 'status' => 1];
-            }
+        if ($admin->status == 0) {
+            return ['email' => 'inactive', 'message' => 'You are not an active user, please contact Admin'];
+        } else {
+            return ['email' => $request->email, 'password' => $request->password, 'status' => 1];
         }
-        return $request->only($this->username(), 'password');
     }
 
     /**
