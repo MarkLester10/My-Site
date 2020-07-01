@@ -67,18 +67,22 @@
                   <p>Posts</p>
                 </a>
               </li>
-              <li class="nav-item">
+             @can('posts.category', Auth::user())
+             <li class="nav-item">
                 <a href="{{route('category.index')}}" class="nav-link ml-3">
                   <i class="far fa-list-alt nav-icon"></i>
                   <p>Categories</p>
                 </a>
               </li>
-              <li class="nav-item">
+             @endcan
+             @can('posts.tag', Auth::user())
+             <li class="nav-item">
                 <a href="{{route('tag.index')}}" class="nav-link ml-3">
                   <i class="fa fa-hashtag nav-icon"></i>
                   <p>Tags</p>
                 </a>
               </li>
+             @endcan
             </ul>
           </li>
           <li class="nav-item">

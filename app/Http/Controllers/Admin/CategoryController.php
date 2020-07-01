@@ -9,6 +9,16 @@ use App\Model\User\Category;
 class CategoryController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:posts.category');
+    }
+
+    public function forbiddenResponse()
+    {
+        return response()->view('errors.403');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,8 +49,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name'=> 'required|unique:categories|min:5',
-            'slug'=>'required|unique:categories|min:5'
+            'name' => 'required|unique:categories|min:5',
+            'slug' => 'required|unique:categories|min:5'
         ]);
         Category::create($validatedData);
         return redirect()->route('category.index')->with('success', 'Category Added Successfully');
@@ -80,8 +90,8 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $validatedData = $request->validate([
-            'name'=> 'required|min:5|unique:tags,name,'.$category->id,
-            'slug'=>'required|min:5|unique:tags,name,'.$category->id
+            'name' => 'required|min:5|unique:tags,name,' . $category->id,
+            'slug' => 'required|min:5|unique:tags,name,' . $category->id
         ]);
         $category->update($validatedData);
         return redirect()->route('category.index')->with('success', ' Category Updated Succesfully');

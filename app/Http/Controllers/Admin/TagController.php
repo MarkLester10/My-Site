@@ -10,6 +10,12 @@ use App\Model\User\Tag;
 class TagController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:posts.tag');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -40,8 +46,8 @@ class TagController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name'=> 'required|unique:tags|min:5',
-            'slug'=>'required|unique:tags|min:5'
+            'name' => 'required|unique:tags|min:5',
+            'slug' => 'required|unique:tags|min:5'
         ]);
         Tag::create($validatedData);
         return redirect()->route('tag.index')->with('success', 'Tag Added Successfully');
@@ -81,8 +87,8 @@ class TagController extends Controller
     {
         $tag = Tag::find($id);
         $validatedData = $request->validate([
-            'name'=> 'required|min:5|unique:tags,name,'.$tag->id,
-            'slug'=>'required|min:5|unique:tags,name,'.$tag->id
+            'name' => 'required|min:5|unique:tags,name,' . $tag->id,
+            'slug' => 'required|min:5|unique:tags,name,' . $tag->id
         ]);
         $tag->update($validatedData);
         return redirect()->route('tag.index')->with('success', 'Tag has been updated');
@@ -99,6 +105,11 @@ class TagController extends Controller
         $tag = Tag::find($id);
         $tag->delete();
 
-     return redirect()->back()->with('success', 'Tag has been deleted');
+        return redirect()->back()->with('success', 'Tag has been deleted');
+    }
+
+    public function forbiddenResponse()
+    {
+        return response()->view('errors.403');
     }
 }
