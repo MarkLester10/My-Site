@@ -12,7 +12,9 @@
     <div class="card">
       <div class="card-header d-flex align-items-center">
         <h3 class="card-title">Manage Users</h3>
+        @can('admins.create', Auth::user())
         <a href="{{route('user.create')}}" class="ml-auto btn btn-success d-flex align-items-center"><ion-icon name="add-circle-outline" class="text-lg"></ion-icon> Add User</a>
+        @endcan
       </div>
       <!-- /.card-header -->
       <div class="card-body">
@@ -23,8 +25,12 @@
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
+            @can('admins.update', Auth::user())
             <th>Edit</th>
+            @endcan
+            @can('admins.delete', Auth::user())
             <th>Delete</th>
+            @endcan
           </tr>
           </thead>
           <tbody>
@@ -41,11 +47,16 @@
                 @if (!$loop->last),@endif
                 @endforeach
               </td>
+              @can('admins.update', Auth::user())
               <td><a href="{{route('user.edit',$user->id)}}"><ion-icon name="create-outline" class="text-success text-lg"></ion-icon>
               </a></td>
+              @endcan
+              @can('admins.delete', Auth::user())
               <td>
                 <a href="#" data-url="{{ route('user.destroy', $user->id) }}" class="delete-user" data-toggle="modal" data-target="#exampleModal"><ion-icon name="trash-bin-outline" class="text-lg text-danger"></ion-icon></a>
               </td>
+              @endcan
+
             </tr>
             @endforeach
           </tbody>
@@ -55,8 +66,12 @@
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
+            @can('admins.update', Auth::user())
             <th>Edit</th>
+            @endcan
+            @can('admins.delete', Auth::user())
             <th>Delete</th>
+            @endcan
           </tr>
           </tfoot>
         </table>

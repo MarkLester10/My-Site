@@ -151,9 +151,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::where('id', $id)->first();
-        $post->delete();
-        return redirect()->back()->with('success', 'Post Deleted Successfully');
+        if (Auth::user()->can('posts.delete')) {
+            $post = Post::where('id', $id)->first();
+            $post->delete();
+            return redirect()->back()->with('success', 'Post Deleted Successfully');
+        }
+        return redirect()->route('post.index')->with('message', 'You are not Authorized to Delete this Post');
     }
 
     public function check_slug(Request $request)

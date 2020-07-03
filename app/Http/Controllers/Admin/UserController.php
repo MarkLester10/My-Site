@@ -28,6 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('admins.create');
         $roles = Role::all();
         return view('admin.user.create', compact('roles'));
     }
@@ -77,6 +78,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admins.update');
         $roles = Role::all();
         $admin = Admin::find($id);
         return view('admin.user.edit', compact('admin', 'roles'));
@@ -115,6 +117,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admins.delete');
         $admin_user = Admin::find($id);
         $admin_user->delete();
 

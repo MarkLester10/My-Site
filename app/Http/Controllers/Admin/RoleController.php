@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:admins.role');
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -110,17 +110,20 @@
                   <span class="badge badge-info right"></span>
                 </a>
               </li>
-              <li class="nav-item">
+             @can('admins.role', Auth::user())
+             <li class="nav-item">
                 <a href="{{route('role.index')}}" class="nav-link ml-3">
                   <i class="fa fa-universal-access nav-icon"></i>
                   <p>Roles</p>
                   <span class="badge badge-info right"></span>
                 </a>
               </li>
+             @endcan
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
+         @can('admins.permission', Auth::user())
+         <li class="nav-item has-treeview">
             <a href="{{ route('permission.index') }}" class="nav-link">
               <i class="nav-icon fas fa-lock"></i>
               <p>
@@ -128,6 +131,7 @@
               </p>
             </a>
           </li>
+         @endcan
 
 
 

@@ -14,10 +14,10 @@ class CategoryController extends Controller
         $this->middleware('can:posts.category');
     }
 
-    public function forbiddenResponse()
-    {
-        return response()->view('errors.403');
-    }
+    // public function forbiddenResponse()
+    // {
+    //     return response()->view('errors.403');
+    // }
 
     /**
      * Display a listing of the resource.

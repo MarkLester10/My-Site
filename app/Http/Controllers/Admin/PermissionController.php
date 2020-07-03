@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class PermissionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:admins.permission');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,15 +43,15 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required|string|max:20|unique:permissions',
-            'for'=> 'required',
+        $this->validate($request, [
+            'name' => 'required|string|max:20|unique:permissions',
+            'for' => 'required',
         ]);
         $permission = new Permission();
         $permission->name = $request->name;
         $permission->for = $request->for;
         $permission->save();
-         return redirect()->route('permission.index')->with('success','New Permission has been Created');
+        return redirect()->route('permission.index')->with('success', 'New Permission has been Created');
     }
 
     /**
@@ -67,7 +73,7 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
-        return view('admin.permission.edit',compact('permission'));
+        return view('admin.permission.edit', compact('permission'));
     }
 
     /**
@@ -79,13 +85,13 @@ class PermissionController extends Controller
      */
     public function update(Request $request, Permission $permission)
     {
-        $this->validate($request,[
-            'name'=>'required|string|max:20|unique:permissions,name,'.$permission->id,
-            'for'=> 'required',
+        $this->validate($request, [
+            'name' => 'required|string|max:20|unique:permissions,name,' . $permission->id,
+            'for' => 'required',
         ]);
 
         $permission->update($request->all());
-         return redirect()->route('permission.index')->with('success','Permission has been Updated');
+        return redirect()->route('permission.index')->with('success', 'Permission has been Updated');
     }
 
     /**

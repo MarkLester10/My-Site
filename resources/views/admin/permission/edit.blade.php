@@ -53,7 +53,7 @@
                      <option value=""></option>
                      <option value="user" @if($permission->for === 'user') selected @endif>User</option>
                      <option value="post"@if($permission->for === 'post') selected @endif>Post</option>
-                     <option value="other" @if($permission->for === 'user') selected @endif>Other</option>
+                     <option value="other" @if($permission->for === 'other') selected @endif>Other</option>
                     </select>
                     @error('for')
                     <div class="invalid-feedback">
