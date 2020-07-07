@@ -41,7 +41,7 @@ class AdminUserPolicy
      */
     public function create(Admin $user)
     {
-        return $this->getPermission($user, 11);
+        return $this->getPermission($user, 5);
     }
 
     /**
@@ -53,7 +53,7 @@ class AdminUserPolicy
      */
     public function update(Admin $user)
     {
-        return $this->getPermission($user, 12);
+        return $this->getPermission($user, 6);
     }
 
     /**
@@ -65,7 +65,7 @@ class AdminUserPolicy
      */
     public function delete(Admin $user)
     {
-        return $this->getPermission($user, 13);
+        return $this->getPermission($user, 7);
     }
 
     /**
@@ -94,12 +94,12 @@ class AdminUserPolicy
 
     public function permission(Admin $user)
     {
-        return $this->getPermission($user, 17);
+        return $this->getPermission($user, 1);
     }
 
     public function role(Admin $user)
     {
-        return $this->getPermission($user, 17);
+        return $this->getPermission($user, 1);
     }
 
     protected function getPermission($user, $permission_id)

@@ -1,9 +1,20 @@
 @extends('user.app')
 
-@section('header-title', "Reads")
+@section('header-title',(request()->is('blog/post/category/*') || request()->is('blog/post/tag/*'))? \Str::ucfirst(collect(request()->segments())->last()) :"Reads")
 @section('bg-img',asset('user/img/home-bg.jpg'))
-@section('title', "Reads")
-@section('subheading', "Hi enjoy reading our blog, help us publish more interesting stories")
+@section('title',(request()->is('blog/post/category/*') || request()->is('blog/post/tag/*'))? \Str::ucfirst(collect(request()->segments())->last()) :"Reads")
+
+@if((request()->is('blog/post/category/*')))
+  @section('subheading','Category')
+@elseif((request()->is('blog/post/tag/*')))
+  @section('subheading','Tag')
+@else
+  @section('subheading','Hi!, enjoy reading our blog. Be insipired and learn from our stories')
+@endif
+
+
+
+
 
 @section('content')
      <!-- Main Content -->
