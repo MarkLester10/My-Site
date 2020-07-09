@@ -32,9 +32,8 @@
         :key="post.index"
         :post-id="post.id"
         :slug="post.slug"
-        path={{ route('post') }}
-        login={{ Auth::check() }}
         :likes="post.likes.length"
+        login={{ Auth::check() }}
         ></posts>
 
 

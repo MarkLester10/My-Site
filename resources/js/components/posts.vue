@@ -57,7 +57,7 @@
       methods:{
           likeIt(){
            if(this.login){
-             this.$Progress.start()
+                 this.$Progress.start()
              axios.post('/saveLike',{
                  id:this.postId
             })
@@ -75,15 +75,16 @@
                 // console.log(response)
             }
             })
-            .catch((error)=> {
-                console.log(error)
-            this.$Progress.fail();
-             Toast.fire({
-            icon: "error",
-            title: "Something went wrong"
-          });
+                .catch((error)=> {
+                    console.log(error)
+                this.$Progress.fail();
+                Toast.fire({
+                icon: "error",
+                title: "Something went wrong"
             });
-           }else{
+            });
+           }
+           else{
                window.location = 'login';
            }
           }
