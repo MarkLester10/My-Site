@@ -14,9 +14,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('blog')}}">Reads</a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('contact')}}">Contact</a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" href="{{route('resume')}}">Resume</a>
           </li>
@@ -35,6 +35,7 @@
             </form>
             @endguest
           </li>
+
         </ul>
       </div>
     </div>

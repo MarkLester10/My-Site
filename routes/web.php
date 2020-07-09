@@ -24,6 +24,12 @@ Route::group(['namespace' => 'User'], function () {
     Route::get('/blog/post/{post?}', 'PostController@show')->name('post');
     Route::get('/blog/post/tag/{tag}', 'HomeController@tag')->name('tag');
     Route::get('/blog/post/category/{category}', 'HomeController@category')->name('category');
+
+
+    //vue routes
+
+    Route::post('getPosts', 'PostController@getAllPosts');
+    Route::post('saveLike', 'PostController@saveLike');
 });
 
 // admin routes
