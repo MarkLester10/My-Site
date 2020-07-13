@@ -1930,22 +1930,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component Mounted');
+    console.log("Component Mounted");
   },
-  props: ['title', 'subtitle', 'created_at', 'tag_name', 'slug', 'postId', 'login', 'likes'],
+  props: ["title", "subtitle", "created_at", "tag_name", "slug", "postId", "login", "likes", "admin"],
   data: function data() {
     return {
       likeCount: 0
@@ -1960,10 +1949,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.login) {
         this.$Progress.start();
-        axios.post('/saveLike', {
+        axios.post("/saveLike", {
           id: this.postId
         }).then(function (response) {
-          if (response.data === 'deleted') {
+          if (response.data === "deleted") {
             _this.likeCount -= 1;
 
             _this.$Progress.finish();
@@ -1988,7 +1977,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         });
       } else {
-        window.location = 'login';
+        window.location = "login";
       }
     }
   }
@@ -6438,7 +6427,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.heart{\n       color:red;\n}\n", ""]);
+exports.push([module.i, "\n.heart {\n  color: red;\n}\n", ""]);
 
 // exports
 
@@ -41379,12 +41368,10 @@ var render = function() {
     { staticClass: "post-preview" },
     [
       _c("a", { attrs: { href: _vm.slug } }, [
-        _c("h2", { staticClass: "post-title" }, [
-          _vm._v("\n         " + _vm._s(_vm.title) + "\n       ")
-        ]),
+        _c("h2", { staticClass: "post-title" }, [_vm._v(_vm._s(_vm.title))]),
         _vm._v(" "),
         _c("h3", { staticClass: "post-subtitle" }, [
-          _vm._v("\n         " + _vm._s(_vm.subtitle) + "\n       ")
+          _vm._v(_vm._s(_vm.subtitle))
         ])
       ]),
       _vm._v(" "),
@@ -41395,9 +41382,9 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("p", { staticClass: "post-meta" }, [
-        _vm._v("Posted " + _vm._s(_vm.created_at) + " by\n       "),
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Start Bootstrap")]),
-        _vm._v("\n       " + _vm._s(_vm.created_at) + "\n       "),
+        _vm._v("\n    Posted " + _vm._s(_vm.created_at) + " by\n    "),
+        _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(_vm.admin))]),
+        _vm._v(" "),
         _c("br"),
         _vm._v(" "),
         _c(
@@ -53646,9 +53633,9 @@ var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.mixin({
 });
 window.Toast = Toast;
 Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_0___default.a, {
-  color: 'rgb(143, 255, 199)',
-  failedColor: 'red',
-  height: '2px'
+  color: "rgb(143, 255, 199)",
+  failedColor: "red",
+  height: "2px"
 });
 /**
  * The following block of code may be used to automatically register your
@@ -53660,7 +53647,7 @@ Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_0___default.a, {
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('posts', __webpack_require__(/*! ./components/posts.vue */ "./resources/js/components/posts.vue")["default"]);
+Vue.component("posts", __webpack_require__(/*! ./components/posts.vue */ "./resources/js/components/posts.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -53668,10 +53655,10 @@ Vue.component('posts', __webpack_require__(/*! ./components/posts.vue */ "./reso
  */
 
 var url = window.location.href;
-var page = url.split('=')[1];
+var page = url.split("=")[1];
 console.log(page);
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: function data() {
     return {
       blog: {}
@@ -53680,12 +53667,13 @@ var app = new Vue({
   mounted: function mounted() {
     var _this = this;
 
-    axios.post('/getPosts', {
-      'page': page
+    axios.post("/getPosts", {
+      page: page
     }).then(function (response) {
       // handle success
       var data = response.data.data;
-      _this.blog = data; // console.log(response);
+      _this.blog = data;
+      console.log(response);
     })["catch"](function (error) {
       // handle error
       console.log(error);
@@ -53845,8 +53833,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\WebProjects\Blog-Site\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\WebProjects\Blog-Site\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\Blog-Site\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\Blog-Site\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

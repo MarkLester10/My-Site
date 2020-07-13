@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Blog\PostsViewModel;
 use App\Model\User\Tag;
 use App\Model\User\Post;
 use Illuminate\Support\Str;
@@ -22,7 +23,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->get();
-        return view('admin.post.index', compact('posts'));
+        $viewModel = new PostsViewModel($posts);
+        return view('admin.post.index', $viewModel);
     }
 
     /**
@@ -60,7 +62,8 @@ class PostController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $imageName = $request->image->store('public');
+            $imageName = $request->image->getClientOriginalName();
+            $request->image->move(public_path('images'), $imageName);
         }
 
 
@@ -71,9 +74,11 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->image = $imageName;
         $post->status = $request->status;
+        $post->admin()->associate(Auth::id());
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
+
 
         return redirect()->route('post.index')->with('success', 'Post Added Successfully');
     }
@@ -128,7 +133,8 @@ class PostController extends Controller
 
 
         if ($request->hasFile('image')) {
-            $imageName = $request->image->store('public');
+            $imageName = $request->image->getClientOriginalName();
+            $request->image->move(public_path('images'), $imageName);
         }
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
@@ -136,6 +142,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->image = $imageName;
         $post->status = $request->status;
+        $post->admin()->associate(Auth::id());
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);

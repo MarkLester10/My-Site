@@ -17,22 +17,22 @@ class PostController extends Controller
 
     public function getAllPosts(Post $post)
     {
-        $posts=Post::with('tags','likes')->where('status',1)->orderBy('created_at','DESC')->paginate(5);
+        $posts = Post::with('tags', 'likes', 'admin')->where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
         return $posts;
     }
 
     public function saveLike(Request $request)
     {
-        $likeCheck = Like::where(['user_id'=>Auth::id(),'post_id'=>$request->id])->first();
+        $likeCheck = Like::where(['user_id' => Auth::id(), 'post_id' => $request->id])->first();
 
-        if($likeCheck){
-        Like::where(['user_id'=>Auth::id(),'post_id'=>$request->id])->delete();
-        return 'deleted';
-        }else{
-        $like = new Like;
-        $like->user_id = Auth::id();
-        $like->post_id = $request->id;
-        $like->save();
+        if ($likeCheck) {
+            Like::where(['user_id' => Auth::id(), 'post_id' => $request->id])->delete();
+            return 'deleted';
+        } else {
+            $like = new Like;
+            $like->user_id = Auth::id();
+            $like->post_id = $request->id;
+            $like->save();
         }
     }
 }

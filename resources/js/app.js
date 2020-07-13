@@ -4,11 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
-import VueProgressBar from 'vue-progressbar'
-import Swal from 'sweetalert2'
+window.Vue = require("vue");
+import VueProgressBar from "vue-progressbar";
+import Swal from "sweetalert2";
 window.Swal = Swal;
 
 //sweetalert
@@ -26,10 +26,10 @@ const Toast = Swal.mixin({
 window.Toast = Toast;
 
 Vue.use(VueProgressBar, {
-    color: 'rgb(143, 255, 199)',
-    failedColor: 'red',
-    height: '2px'
-  })
+    color: "rgb(143, 255, 199)",
+    failedColor: "red",
+    height: "2px"
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -42,7 +42,7 @@ Vue.use(VueProgressBar, {
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('posts', require('./components/posts.vue').default);
+Vue.component("posts", require("./components/posts.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -50,30 +50,31 @@ Vue.component('posts', require('./components/posts.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 let url = window.location.href;
-let page = url.split('=')[1];
+let page = url.split("=")[1];
 
 console.log(page);
 
 const app = new Vue({
-    el: '#app',
-    data:function(){
-        return{
-            blog:{},
-        }
+    el: "#app",
+    data: function() {
+        return {
+            blog: {}
+        };
     },
-     mounted() {
-       axios.post('/getPosts',{
-           'page':page,
-       })
-        .then((response)=> {
-            // handle success
-            const {data} = response.data;
-            this.blog = data;
-            // console.log(response);
-        })
-        .catch((error)=> {
-            // handle error
-            console.log(error);
-        });
-    },
+    mounted() {
+        axios
+            .post("/getPosts", {
+                page: page
+            })
+            .then(response => {
+                // handle success
+                const { data } = response.data;
+                this.blog = data;
+                console.log(response);
+            })
+            .catch(error => {
+                // handle error
+                console.log(error);
+            });
+    }
 });

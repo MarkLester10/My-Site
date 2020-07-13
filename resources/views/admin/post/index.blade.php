@@ -13,7 +13,9 @@
         <div class="card-header d-flex align-items-center">
             <h3 class="card-title">Manage Posts</h3>
             @can('posts.create', Auth::user())
-            <a href="{{route('post.create')}}" class="ml-auto btn btn-success d-flex align-items-center"><ion-icon name="add-circle-outline" class="text-lg"></ion-icon> Add Post</a>
+            <a href="{{route('post.create')}}" class="ml-auto btn btn-success d-flex align-items-center">
+                <ion-icon name="add-circle-outline" class="text-lg"></ion-icon> Add Post
+            </a>
             @endcan
         </div>
         <!-- /.card-header -->
@@ -47,17 +49,21 @@
                             @endif
                         </td>
                         <td>{{$post->subtitle}}</td>
-                        <td>{{$post->slug}}</td>
+                        <td>{{$post->slugName}}</td>
                         <td>{{\Carbon\Carbon::parse($post->created_at)->format('M d, Y - g:i A')}}</td>
 
                         @can('posts.update', Auth::user())
-                        <td><a href="{{route('post.edit',$post->id)}}"><ion-icon name="create-outline" class="text-success text-lg"></ion-icon>
-                        </a></td>
+                        <td><a href="{{route('post.edit',$post->id)}}">
+                                <ion-icon name="create-outline" class="text-success text-lg"></ion-icon>
+                            </a></td>
                         @endcan
 
                         @can('posts.delete', Auth::user())
                         <td>
-                            <a href="#" data-url="{{ route('post.destroy', $post->id) }}" class="delete-post" data-toggle="modal" data-target="#exampleModal"><ion-icon name="trash-bin-outline" class="text-lg text-danger"></ion-icon></a>
+                            <a href="#" data-url="{{ route('post.destroy', $post->id) }}" class="delete-post"
+                                data-toggle="modal" data-target="#exampleModal">
+                                <ion-icon name="trash-bin-outline" class="text-lg text-danger"></ion-icon>
+                            </a>
                         </td>
                         @endcan
                     </tr>

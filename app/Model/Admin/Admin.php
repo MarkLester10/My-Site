@@ -2,6 +2,7 @@
 
 namespace App\Model\Admin;
 
+use App\Model\User\Post;
 use App\Model\Admin\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -34,6 +35,12 @@ class Admin extends Authenticatable
     {
         return $this->belongsToMany(Role::class, 'admin_roles');
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 
     public function getNameAttribute($value)
     {

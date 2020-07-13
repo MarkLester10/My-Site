@@ -5,22 +5,23 @@ namespace App\Model\User;
 use Carbon\Carbon;
 use App\Model\User\Tag;
 use App\Model\User\Like;
+use App\Model\Admin\Admin;
 use App\Model\User\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $guarded =[];
+    protected $guarded = [];
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class,'post_tags')
-                    ->withTimestamps();
+        return $this->belongsToMany(Tag::class, 'post_tags')
+            ->withTimestamps();
     }
     public function categories()
     {
-        return $this->belongsToMany(Category::class,'category_posts')
-                    ->withTimestamps();
+        return $this->belongsToMany(Category::class, 'category_posts')
+            ->withTimestamps();
     }
 
     public function likes()
@@ -40,8 +41,11 @@ class Post extends Model
 
     public function getSlugAttribute($value)
     {
-        return route('post',$value);
+        return route('post', $value);
     }
 
-
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }
