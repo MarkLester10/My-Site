@@ -1,4 +1,4 @@
-<p align="center"><img src="public/user/img/bg.png" width="900" height="400"></p>
+<p align="center"><img src="public/user/img/bg.PNG" width="900" height="400"></p>
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
