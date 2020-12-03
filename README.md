@@ -1,4 +1,5 @@
 <p align="center"><img src="public/user/img/bg.PNG" width="900" height="400"></p>
+
 ## Blog Site (CMS)
 
 Simple multi auth blog site, with admin roles and permissions, like system and Facebook comment plugin system.
