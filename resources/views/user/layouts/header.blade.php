@@ -11,9 +11,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('blog')}}">Reads</a>
-          </li>
           {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('contact')}}">Contact</a>
           </li> --}}
@@ -35,6 +32,11 @@
             </form>
             @endguest
           </li>
+         @guest
+         <li class="nav-item">
+            <a class="nav-link" href="{{route('register')}}">Register</a>
+          </li>
+         @endguest
 
         </ul>
       </div>

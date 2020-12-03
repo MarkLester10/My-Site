@@ -26,7 +26,7 @@
     <div class="row">
         @if($posts->count() > 0)
         <div class="col-lg-8 col-md-10 mx-auto">
-            <posts v-for="post in blog" admin="post.admin_id" :title="post.title" :subtitle="post.subtitle"
+            <posts v-for="post in blog" :admin="post.posted_by" :title="post.title" :subtitle="post.subtitle"
                 :created_at="post.created_at" :tag_name="post.tags" :key="post.index" :post-id="post.id"
                 :slug="post.slug" :likes="post.likes.length" login={{ Auth::check() }}></posts>
             <!-- Pager -->

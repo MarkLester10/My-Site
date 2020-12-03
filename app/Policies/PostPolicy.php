@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(Admin $user)
     {
-        return $this->getPermission($user, 2);
+        return $this->getPermission($user, 5);
     }
 
     /**
@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(Admin $user)
     {
-        return $this->getPermission($user, 4);
+        return $this->getPermission($user, 6);
     }
 
     /**
@@ -65,7 +65,7 @@ class PostPolicy
      */
     public function delete(Admin $user)
     {
-        return $this->getPermission($user, 3);
+        return $this->getPermission($user, 7);
     }
 
     /**

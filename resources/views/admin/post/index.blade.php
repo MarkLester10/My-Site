@@ -49,7 +49,7 @@
                             @endif
                         </td>
                         <td>{{$post->subtitle}}</td>
-                        <td>{{$post->slugName}}</td>
+                        <td>{{$post->slug}}</td>
                         <td>{{\Carbon\Carbon::parse($post->created_at)->format('M d, Y - g:i A')}}</td>
 
                         @can('posts.update', Auth::user())

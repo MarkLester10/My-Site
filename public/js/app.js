@@ -6427,7 +6427,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.heart {\n  color: red;\n}\n", ""]);
+exports.push([module.i, "\n.heart {\r\n  color: red;\n}\r\n", ""]);
 
 // exports
 

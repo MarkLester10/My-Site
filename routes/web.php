@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Auth;
 
 // User routes
 Route::group(['namespace' => 'User'], function () {
-    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/resume', 'HomeController@resume')->name('resume');
-    Route::get('/blog', 'HomeController@blog')->name('blog');
+    Route::get('/', 'HomeController@blog')->name('blog');
     Route::get('/projects', 'HomeController@projects')->name('projects');
     Route::get('/contact', 'HomeController@contact')->name('contact');
     Route::get('/blog/post/{post?}', 'PostController@show')->name('post');
@@ -51,7 +50,6 @@ Route::post('/admin-login', 'Admin\Auth\LoginController@login');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 //404 page
 Route::fallback(function () {

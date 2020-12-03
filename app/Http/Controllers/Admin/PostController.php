@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Blog\PostsViewModel;
 use App\Model\User\Tag;
 use App\Model\User\Post;
 use Illuminate\Support\Str;
+use App\Blog\PostsViewModel;
 use App\Model\User\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -74,7 +75,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->image = $imageName;
         $post->status = $request->status;
-        $post->admin()->associate(Auth::id());
+        $post->posted_by = auth()->user()->name;
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
@@ -134,6 +135,9 @@ class PostController extends Controller
 
         if ($request->hasFile('image')) {
             $imageName = $request->image->getClientOriginalName();
+            if ($post->image != $imageName) {
+                unlink(public_path('images/' . $post->image));
+            }
             $request->image->move(public_path('images'), $imageName);
         }
         $post->title = $request->title;
@@ -142,7 +146,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->image = $imageName;
         $post->status = $request->status;
-        $post->admin()->associate(Auth::id());
+        $post->posted_by = auth()->user()->name;
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);

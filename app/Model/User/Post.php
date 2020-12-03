@@ -48,4 +48,8 @@ class Post extends Model
     {
         return $this->belongsTo(Admin::class);
     }
+    public function owner()
+    {
+        return Admin::where('id', $this->admin_id)->first()->name;
+    }
 }

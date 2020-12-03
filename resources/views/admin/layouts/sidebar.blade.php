@@ -28,29 +28,8 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -110,7 +89,7 @@
                   <span class="badge badge-info right"></span>
                 </a>
               </li>
-             @can('admins.role', Auth::user())
+             {{-- @can('admins.role', Auth::user()) --}}
              <li class="nav-item">
                 <a href="{{route('role.index')}}" class="nav-link ml-3">
                   <i class="fa fa-universal-access nav-icon"></i>
@@ -118,11 +97,11 @@
                   <span class="badge badge-info right"></span>
                 </a>
               </li>
-             @endcan
+             {{-- @endcan --}}
             </ul>
           </li>
 
-         @can('admins.permission', Auth::user())
+         {{-- @can('admins.permission', Auth::user()) --}}
          <li class="nav-item has-treeview">
             <a href="{{ route('permission.index') }}" class="nav-link">
               <i class="nav-icon fas fa-lock"></i>
@@ -131,7 +110,7 @@
               </p>
             </a>
           </li>
-         @endcan
+         {{-- @endcan --}}
 
 
 
