@@ -15,31 +15,31 @@ class PermissionSeeder extends Seeder
         $data = [
             [
                 'name' => "User Create",
-                'for' => "User"
+                'for' => "user"
             ],
             [
                 'name' => "User Update",
-                'for' => "User"
+                'for' => "user"
             ],
             [
                 'name' => "User Edit",
-                'for' => "User"
+                'for' => "user"
             ],
             [
                 'name' => "User Delete",
-                'for' => "User"
+                'for' => "user"
             ],
             [
                 'name' => "Post Create",
-                'for' => "Post"
+                'for' => "post"
             ],
             [
                 'name' => "Post Update",
-                'for' => "Post"
+                'for' => "post"
             ],
             [
                 'name' => "Post Delete",
-                'for' => "User"
+                'for' => "post"
             ],
             [
                 'name' => "Category CRUD",

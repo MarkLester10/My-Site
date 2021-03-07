@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="slug">Post Slug</label>
-                                        <input type="text" class="form-control @if($errors->has('slug')) is-invalid @endif" id="slug" name="slug" placeholder="Slug" value="{{$post->slug}}">
+                                        <input type="text" class="form-control @if($errors->has('slug')) is-invalid @endif" id="slug" name="slug" placeholder="Slug" value="{{ Str::afterLast($post->slug, '/')}}">
                                         @error('slug')
                                         <div class="invalid-feedback">
                                             {{$message}}

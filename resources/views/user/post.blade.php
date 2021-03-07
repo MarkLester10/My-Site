@@ -1,7 +1,7 @@
 @extends('user.app')
 
 @section('header-title', $post->title)
-@section('bg-img',asset('/images/'.$post->image))
+@section('bg-img',asset('/images/'. $post->image))
 @section('title', $post->title)
 @section('subheading', $post->subtitle)
 
